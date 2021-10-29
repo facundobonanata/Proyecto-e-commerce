@@ -40,17 +40,142 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">Carrito</a>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  
+  <!-- Contador de articulos -->
+  <div class="container pt-5">
+    <div class="text-center">
+      <h2>Carrito</h2>
+      <p class="lead">Tu carrito tiene <span class="" id="cartCountDOM"></span> artículos.</p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+
+        <!-- Muestro contenido del Carrito -->
+        <div class="col-10 list-group mt-4">
+          <ul class="list-group-item rounded">
+            <div class="row justify-content-around">
+              <div class="col-2 d-flex align-items-center">
+                <div class="d-flex w-100 align-items-center justify-content-center">
+                  <b>Articulo</b>
+                </div>
+              </div>
+              <div class="col-2 d-flex align-items-center">
+                <div class="d-flex w-100 align-items-center justify-content-center">
+                  <b>Nombre</b>
+                </div>
+              </div>
+              <div class="col-2 d-flex align-items-center">
+                <div class="d-flex w-100 align-items-center justify-content-center">
+                  <b>Precio</b>
+                </div>
+              </div>
+              <div class="col-2 d-flex align-items-center">
+                <div class="d-flex w-100 align-items-center justify-content-center">
+                  <b>Cantidad</b>
+                </div>
+              </div>
+            </div>
+          </ul>
+          <div class="mt-3" id="carritoContenido"></div>
+        </div>
+        
+        <!-- Muestro SubTotal -->
+        <div class="col-4 mt-3 pr-0 ">
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between">
+              <div>
+                <h6 class="my-1">Sub-Total</h6>
+              </div>
+              <span class="text-muted" id="subTotalDOM">-</span>
+            </li>
+            
+            <li class="list-group-item d-flex justify-content-between ">
+              <span>Moneda</span>
+              <div class="custom-control custom-radio">
+                <input id="pesoCurrency" name="currencyType" type="radio" class="custom-control-input color" checked="" required="">
+                <label class="custom-control-label" for="pesoCurrency">UYU</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="dollarCurrency" name="currencyType" type="radio" class="custom-control-input" required="">
+                <label class="custom-control-label" for="dollarCurrency">USD</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mb-4">
+    <h5 class="mb-3">Tipo de Envío</h5>
+    <div class="d-block my-3">
+      <div class="custom-control custom-radio">
+        <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input">
+        <label class="custom-control-label" for="premiumradio">Premium 2 a 5 días (15%)</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="expressradio" name="publicationType" type="radio" class="custom-control-input">
+        <label class="custom-control-label" for="expressradio">Express 5 a 8 días (7%)</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="standardradio" name="publicationType" type="radio" class="custom-control-input">
+        <label class="custom-control-label" for="standardradio">Standar 12 a 15 días (5%)</label>
+      </div>
+</div>
+
+    <hr class="mb-4">
+
+    <form>
+      <h5 class="mb-3">Dirección de envío</h5>
+      <div class="row">
+        <div class="col-6">
+          <label>Calle</label>
+          <input type="text" class="form-control">
+        </div>
+
+        <div class="col-3">
+          <label >Número</label>
+          <input type="text" class="form-control">
+        </div>
+
+        <div class="col-6 mt-3">
+          <label>Esquina</label>
+          <input type="text" class="form-control">
+        </div>
+
+        <div class="col-3 mt-3">
+          <label>País</label>
+          <select class="custom-select d-block w-100">
+            <option value="">Elige un país</option>
+          </select>
+        </div>
+      </div>
+    </form>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   </div>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+        
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

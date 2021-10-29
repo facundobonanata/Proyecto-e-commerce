@@ -45,25 +45,24 @@ const showProductsList = () => {
         if (((minCost == undefined) || (minCost != undefined && parseInt(products.soldCount) >= minCost)) &&
             ((maxCost == undefined) || (maxCost != undefined && parseInt(products.soldCount) <= maxCost))){
 
-            htmlContentToAppend += `
-		<a href= "product-info.html" class="list-group-item list-group-item-action">
-        <div class="row">
-        <div class="col-3">
-            <img src="` + products.imgSrc + `" alt="` + products.description + `" class="img-thumbnail">
-            </div>
-        <div class="col">
-        <div class="d-flex w-100 justify-content-between">
-            <h4 class="mb-1">`+ products.name + `</h4>
-                <small class="text-muted">` + products.soldCount + ` artículos vendidos.</small>
-            </div>
-		<div>
-            <p>`+ products.description + `</p>
-             <p> Precio `+ products.currency + "   " + products.cost + `</p>
-                     </div>
-                </div>
-            </div>
-        </div>
-            `
+                htmlContentToAppend += `
+                <div class="col-md-4">
+                <div class="album py-1 bg-light">
+                <a href= "product-info.html" class="card shadow-sm custom-card">
+                  <img src="${products.imgSrc}" class=" bd-placeholder-img card-img-top">
+
+                  <div class="card-body">
+                  <h3 class="mb-3">${products.name}</h3>
+                  
+                  <h6 class="card-cost mb-2 text-muted">${products.currency} ${products.cost}</h6>
+                      
+                  <p class="card-text">${products.description}</p>                      
+                  <p class="card-text"><small class="text-muted"> artículos vendidos ` + products.soldCount + `</small></p>
+                  </div>
+                  </div>
+                </a>
+              </div>
+                `            
         }
         document.getElementById("pro-list-container").innerHTML = htmlContentToAppend;
     }

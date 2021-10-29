@@ -49,7 +49,7 @@ if (!window.location.href.endsWith('login.html') && //si href termina con login.
 function logout(e) {
   sessionStorage.removeItem('logueado');
   localStorage.removeItem("nombre_usuario");
-  window.location.href = 'index.html';
+  window.location.href = 'login.html';
 }
 
 function dropdownField() {
@@ -61,9 +61,9 @@ function dropdownField() {
     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" 
     aria-expanded="false">` + username + ` </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="cart.html">Mi Carrito</a>
-        <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
-        <a class="dropdown-item" onclick="logout()" href="#">Cerrar Sesión</a>
+        <a class="dropdown-item" href="cart.html"> Carrito </a>
+        <a class="dropdown-item" href="my-profile.html"> Mi Perfil </a>
+        <a class="dropdown-item" onclick="logout()" href="#"> Cerrar Sesión </a>
       </div>
     </div>
     `;
