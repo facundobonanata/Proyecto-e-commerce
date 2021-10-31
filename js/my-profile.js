@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 	profileNumber.value = myProfileData.number;
 	profileImage.src = myProfileData.image;
 
-	if (myProfileData) {
 		showProfile();
-	}
+
 });
