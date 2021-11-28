@@ -11,45 +11,20 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <style>
-    html, body{
-      height: 100%;
-    }
-
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #f5f5f5;
-    }
-
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-    }
-  </style>
 </head>
 
-<body class="text-center">
-  <div class="container p-5">
-    <div id="contFORM" role="alert">
-      <h4 class="alert-heading">Bienvenido a e-MERCADO</h4>
-      <p>Por favor ingresa tu usuario para continuar</p>
-      <hr>
-      <form id="loginFORM" onsubmit="submitEvenHandler(evento)">
-        <p class="mb-0">Formulario de Ingreso:</p><br>
-        <input type="text" placeholder="Ingresar usuario" name="usuario" id="nombre_usuario" maxlength="10" required><br><br>
-        <input type="password" placeholder="Ingresar contraseña" name="password" id="contrasena" minlength="5" required><br><br>
-        <p><input type="checkbox" name="recordar">Recordarme</p>
-        <input class="btn btn-success" type="submit" value="Ingresar">
-        <input class="btn btn-primary" type="reset" value="Cancelar">
+<body>
+
+<div class="container-login">
+  <div class="form-box">
+      <form class= "input-group" id="loginFORM" onsubmit="submitEvenHandler(evento)">
+        <input class="input-field" type="text" placeholder="Ingresar usuario" name="usuario" id="nombre_usuario" maxlength="10" required>
+        <input class="input-field" type="password" placeholder="Ingresar contraseña" name="password" id="contrasena" minlength="5" required>
+        
+        <input type="checkbox" id="check-box" name="Recordar" value="Recordar"><label for="check-box">Recordar contraseña</label>
+       
+        <input class="submit-btn" type="submit" value="Ingresar">
       </form>
     </div>
   </div>

@@ -41,9 +41,13 @@ const showProductsList = () => {
     let htmlContentToAppend = "";
     for (let i = 0; i < currentProductsArray.length; i++) {
         let products = currentProductsArray[i];
+        let searchProducts = document.getElementById("searchTXT").value.toLowerCase(); 
+
 
         if (((minCost == undefined) || (minCost != undefined && parseInt(products.soldCount) >= minCost)) &&
-            ((maxCost == undefined) || (maxCost != undefined && parseInt(products.soldCount) <= maxCost))){
+            ((maxCost == undefined) || (maxCost != undefined && parseInt(products.soldCount) <= maxCost)) &&
+            products.name.toLowerCase().includes(searchProducts)){
+
 
                 htmlContentToAppend += `
                 <div class="col-md-4">

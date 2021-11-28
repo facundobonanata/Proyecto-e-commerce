@@ -4,8 +4,14 @@ let articlesArray = [];
 let MONEY_SYMBOL = "$";
 let DOLLAR_SYMBOL = "USD ";
 let PESO_SYMBOL = "UYU ";
+let PERCENTAGE_SYMBOL = '%';
 
+let totalCost = 0;
 let currency = false;
+let shippingPercentage = 1.15;
+let shippingPorcentageValue = 15;
+
+
 
 function showArticles(array) {
 	let htmlContentToAppend = "";
@@ -33,6 +39,7 @@ function showArticles(array) {
 					<div class="w-75 d-flex justify-content-center align-items-center">
               			<input type="number" class="form-control" id="articleCount-${index}" value="${article.count}" min="0" onchange="updateValues();">
 					</div>
+				
 				</div>
 				</div>
 			</div>
@@ -50,9 +57,14 @@ function showArticles(array) {
 
 function updateValues() {
 	let subTotalDOM = document.getElementById("subTotalDOM");
+	let totalCostDOM = document.getElementById("totalCostDOM");
+	let shippingPercentageDOM = document.getElementById("shippingPercentageDOM");
+
 	let costDOM = document.querySelectorAll(".costDOM");
 	let articleCountNum = 0;
 	subTotalCost = 0;
+	totalCost = 0;
+
 
 
 	// Accedo a la cantidad de elementos en base a la Clase ".costDOM"
@@ -61,9 +73,9 @@ function updateValues() {
 		let countID = `articleCount-${i}`;
 		let count = document.getElementById(countID).value;
 
-        // Calculo Cantidad de Articulos
+        // Calculo cantidad de articulos
 		articleCountNum += +count;
-        // Muestro Cantidad de Articulos
+        // Muestro cantidad de articulos
 	    cartCountDOM.innerHTML = articleCountNum;
 
 		 
@@ -79,21 +91,31 @@ function updateValues() {
 			subTotalCost += costDOM[i].textContent * count;
 			
 			}else{
-			subTotalCost += costDOM[i].textContent * count*40;
-			
-			}
-			
-			}
-         
-        
-         
-		
-		// Muestro Subtotal
-		subTotalDOM.innerHTML = DOLLAR_SYMBOL + subTotalCost.toLocaleString();
-        subTotalDOM.innerHTML = MONEY_SYMBOL + subTotalCost.toLocaleString(); // .toLocaleString valida el numero y agrega el "." donde corresponde
+			subTotalCost += costDOM[i].textContent * count * 40;
+						
+}									        	
+	// Muestro subtotal
+	subTotalDOM.innerHTML = DOLLAR_SYMBOL + subTotalCost.toLocaleString();
+    subTotalDOM.innerHTML = MONEY_SYMBOL + subTotalCost.toLocaleString(); // .toLocaleString valida el numero y agrega el "." donde corresponde
+}
 
-	}	
-} 
+	// Muestro el porcentaje
+	shippingPercentageDOM.innerHTML = shippingPorcentageValue + PERCENTAGE_SYMBOL;
+	
+	// Calculo el total
+	totalCost = (Math.round(subTotalCost * shippingPercentage * 100) / 100);
+	
+	}
+	//Muestro el total	
+	totalCost = Math.round(totalCost);	
+		
+		totalCostDOM.innerHTML = DOLLAR_SYMBOL + totalCost.toLocaleString();
+		totalCostDOM.innerHTML = MONEY_SYMBOL + totalCost.toLocaleString();
+
+	}
+
+
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -119,17 +141,21 @@ document.addEventListener("DOMContentLoaded", function (e) {
 		updateValues();
 	});
 
-	document.getElementById("productCurrency").addEventListener("change", function(){
-        if (this.value == DOLLAR_CURRENCY)
-        {
-            MONEY_SYMBOL = DOLLAR_SYMBOL;
-        } 
-        else if (this.value == PESO_CURRENCY)
-        {
-            MONEY_SYMBOL = PESO_SYMBOL;
-        }
-
-        updateValues();
-    });
 })
+document.getElementById("premiumradio").addEventListener("change", () => {
+	shippingPercentage = 1.15;
+	shippingPorcentageValue = 15;
+	updateValues();
+});
+document.getElementById("expressradio").addEventListener("change", () => {
+	shippingPercentage = 1.07;
+	shippingPorcentageValue = 7;
+	updateValues();
+});
+document.getElementById("standardradio").addEventListener("change", () => {
+	shippingPercentage = 1.05;
+	shippingPorcentageValue = 5;
+	updateValues();
+});
+
 
